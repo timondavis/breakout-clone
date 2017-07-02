@@ -10,11 +10,14 @@ var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer');
 var browserSync = require( 'browser-sync' );
 
-gulp.task('default', function () {
+gulp.task( 'default', ['compile'] );
+
+gulp.task('compile', function () {
+
     return browserify({
         basedir: '.',
         debug: true,
-        entries: [ 'src/app.ts'],
+        entries: [ 'src/app.ts' ],
         cache: {},
         packageCache: {}
     })
@@ -31,19 +34,20 @@ gulp.task('default', function () {
         .pipe(gulp.dest('js'));
 });
 
-gulp.task( 'browserSync', function() {
+gulp.task( 'browsersync', function() {
 
     browserSync.init({
 
         server: {
-           baseDir: './'
-        }
+            baseDir: '.'
+        },
+        browser: "google chrome"
     })
 });
 
+gulp.task( 'watch', ['browsersync', 'compile'], function() {
 
-gulp.task( 'watch', function() {
-
-    gulp.watch( 'src/**/*', ['default', 'browserSync'] );
+    gulp.watch( 'src/**/*', ['default', 'browsersync'] )
+        .on( 'change', browserSync.reload );
 });
 
