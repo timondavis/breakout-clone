@@ -1,4 +1,4 @@
-namespace GoblinRun {
+namespace MyGame {
 
     export class Global {
         // game
@@ -11,5 +11,5 @@ namespace GoblinRun {
 // -------------------------------------------------------------------------
 window.onload = function () {
 
-    GoblinRun.Global.game = new GoblinRun.Game();
+    MyGame.Global.game = new MyGame.Game();
 };

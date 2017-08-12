@@ -1,7 +1,7 @@
 /**
  * Created by tdavis6782 on 6/28/17.
  */
-namespace GoblinRun {
+namespace MyGame {
 
     export class Boot extends Phaser.State {
         // -------------------------------------------------------------------------

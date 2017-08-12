@@ -1,4 +1,4 @@
-namespace GoblinRun {
+namespace MyGame {
     export class Play extends Phaser.State {
 // -------------------------------------------------------------------------
         public create() {

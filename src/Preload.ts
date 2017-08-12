@@ -1,7 +1,7 @@
 /**
  * Created by tdavis6782 on 6/28/17.
  */
-namespace GoblinRun {
+namespace MyGame {
     export class Preload extends Phaser.State {
         // music decoded, ready for game
         private _ready: boolean = false;

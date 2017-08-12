@@ -1,19 +1,3 @@
-var GoblinRun;
-(function (GoblinRun) {
-    var Global = (function () {
-        function Global() {
-        }
-        return Global;
-    }());
-    // game size
-    Global.GAME_WIDTH = 1024;
-    Global.GAME_HEIGHT = 640;
-    GoblinRun.Global = Global;
-})(GoblinRun || (GoblinRun = {}));
-// -------------------------------------------------------------------------
-window.onload = function () {
-    GoblinRun.Global.game = new GoblinRun.Game();
-};
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -27,31 +11,8 @@ var __extends = (this && this.__extends) || (function () {
 /**
  * Created by tdavis6782 on 6/28/17.
  */
-var GoblinRun;
-(function (GoblinRun) {
-    var Game = (function (_super) {
-        __extends(Game, _super);
-        function Game() {
-            var _this = 
-            // init game
-            _super.call(this, GoblinRun.Global.GAME_WIDTH, GoblinRun.Global.GAME_HEIGHT, Phaser.AUTO, "content") || this;
-            // states
-            _this.state.add("Boot", GoblinRun.Boot);
-            _this.state.add("Preload", GoblinRun.Preload);
-            _this.state.add("Play", GoblinRun.Play);
-            // start
-            _this.state.start("Boot");
-            return _this;
-        }
-        return Game;
-    }(Phaser.Game));
-    GoblinRun.Game = Game;
-})(GoblinRun || (GoblinRun = {}));
-/**
- * Created by tdavis6782 on 6/28/17.
- */
-var GoblinRun;
-(function (GoblinRun) {
+var MyGame;
+(function (MyGame) {
     var Boot = (function (_super) {
         __extends(Boot, _super);
         function Boot() {
@@ -63,13 +24,54 @@ var GoblinRun;
         };
         return Boot;
     }(Phaser.State));
-    GoblinRun.Boot = Boot;
-})(GoblinRun || (GoblinRun = {}));
+    MyGame.Boot = Boot;
+})(MyGame || (MyGame = {}));
 /**
  * Created by tdavis6782 on 6/28/17.
  */
-var GoblinRun;
-(function (GoblinRun) {
+var MyGame;
+(function (MyGame) {
+    var Game = (function (_super) {
+        __extends(Game, _super);
+        function Game() {
+            var _this = 
+            // init game
+            _super.call(this, MyGame.Global.GAME_WIDTH, MyGame.Global.GAME_HEIGHT, Phaser.AUTO, "content") || this;
+            // states
+            _this.state.add("Boot", MyGame.Boot);
+            _this.state.add("Preload", MyGame.Preload);
+            _this.state.add("Play", MyGame.Play);
+            // start
+            _this.state.start("Boot");
+            return _this;
+        }
+        return Game;
+    }(Phaser.Game));
+    MyGame.Game = Game;
+})(MyGame || (MyGame = {}));
+var MyGame;
+(function (MyGame) {
+    var Play = (function (_super) {
+        __extends(Play, _super);
+        function Play() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        // -------------------------------------------------------------------------
+        Play.prototype.create = function () {
+            this.stage.backgroundColor = 0x80FF80;
+        };
+        // -------------------------------------------------------------------------
+        Play.prototype.update = function () {
+        };
+        return Play;
+    }(Phaser.State));
+    MyGame.Play = Play;
+})(MyGame || (MyGame = {}));
+/**
+ * Created by tdavis6782 on 6/28/17.
+ */
+var MyGame;
+(function (MyGame) {
     var Preload = (function (_super) {
         __extends(Preload, _super);
         function Preload() {
@@ -94,24 +96,22 @@ var GoblinRun;
         };
         return Preload;
     }(Phaser.State));
-    GoblinRun.Preload = Preload;
-})(GoblinRun || (GoblinRun = {}));
-var GoblinRun;
-(function (GoblinRun) {
-    var Play = (function (_super) {
-        __extends(Play, _super);
-        function Play() {
-            return _super !== null && _super.apply(this, arguments) || this;
+    MyGame.Preload = Preload;
+})(MyGame || (MyGame = {}));
+var MyGame;
+(function (MyGame) {
+    var Global = (function () {
+        function Global() {
         }
-        // -------------------------------------------------------------------------
-        Play.prototype.create = function () {
-            this.stage.backgroundColor = 0x80FF80;
-        };
-        // -------------------------------------------------------------------------
-        Play.prototype.update = function () {
-        };
-        return Play;
-    }(Phaser.State));
-    GoblinRun.Play = Play;
-})(GoblinRun || (GoblinRun = {}));
-//# sourceMappingURL=goblinrun.js.map
+        // game size
+        Global.GAME_WIDTH = 1024;
+        Global.GAME_HEIGHT = 640;
+        return Global;
+    }());
+    MyGame.Global = Global;
+})(MyGame || (MyGame = {}));
+// -------------------------------------------------------------------------
+window.onload = function () {
+    MyGame.Global.game = new MyGame.Game();
+};
+//# sourceMappingURL=phasergame.js.map
