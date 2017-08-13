@@ -8,10 +8,17 @@ namespace Breakout {
         private balls;
 
         private paddleSpeed = 20;
-        private ballSpeed = 500;
+        private ballSpeed = 300;
+        private maxSpeed = 1000;
 
         private leftBoundary = 170;
         private rightBoundary = 900;
+
+        private speedFactor = 1;
+        private speedFactorIncrement = 0.01;
+        private speedFactorMax = 1.3;
+
+        private ballsRemaining = 3;
 
 
 // -------------------------------------------------------------------------
@@ -24,7 +31,8 @@ namespace Breakout {
 
             this.add.image( 0, 0, 'background', 0 );
 
-            this.paddle = this.add.sprite( 468, 700, 'paddle', 0 );
+            this.paddle = this.add.sprite( 520, 700, 'paddle', 0 );
+            this.paddle.anchor.set( 0.5 );
             this.physics.arcade.enable( this.paddle );
             this.paddle.physicsEnabled = true;
             this.paddle.body.immovable = true;
@@ -56,9 +64,9 @@ namespace Breakout {
 
             let self = this;
 
-            this.physics.arcade.collide( this.paddle, this.balls );
+            this.physics.arcade.collide( this.paddle, this.balls, this.paddleBallCollision, null, this );
             this.physics.arcade.collide( this.walls, this.balls );
-            this.physics.arcade.collide( this.bars, this.balls, this.coll_removeBar );
+            this.physics.arcade.collide( this.bars, this.balls, this.coll_removeBar);
             this.physics.arcade.collide( this.paddle, this.walls );
 
             this.balls.forEach( function( ball: Phaser.Sprite ) {
@@ -73,18 +81,18 @@ namespace Breakout {
 
                   this.paddle.x -= this.paddleSpeed;
 
-                  if ( this.paddle.x <= this.leftBoundary ) {
+                  if ( this.paddle.x - ( this.paddle.width / 2 ) <= this.leftBoundary ) {
 
-                        this.paddle.x = this.leftBoundary + 1;
+                        this.paddle.x = this.leftBoundary + ( this.paddle.width / 2 );
                   }
 
             } else if ( this.input.keyboard.isDown( Phaser.Keyboard.D ) ) {
 
                 this.paddle.x += this.paddleSpeed;
 
-                if ( this.paddle.x + this.paddle.width >= this.rightBoundary ) {
+                if ( this.paddle.x + ( this.paddle.width / 2 ) >= this.rightBoundary ) {
 
-                    this.paddle.x = this.rightBoundary - this.paddle.width + 1;
+                    this.paddle.x = this.rightBoundary - ( this.paddle.width / 2 ) + 1;
                 }
             }
         }
@@ -102,7 +110,6 @@ namespace Breakout {
             for ( let row = 0 ; row < 4 ; row++ ) {
 
                 for ( let col = 0 ; col < 10 ; col++ )  {
-
 
                     let bar = this.add.sprite( xOffset + (col * 68),
                         yOffset + (row * 10),
@@ -162,6 +169,7 @@ namespace Breakout {
             bmd.ctx.fill();
 
             let sprite = this.add.sprite( x, y, bmd, 0, this.balls );
+            sprite.anchor.set( 0.5 );
             this.physics.arcade.enable( sprite );
             sprite.physicsEnabled = true;
 
@@ -172,9 +180,34 @@ namespace Breakout {
             sprite.body.bounce.setTo( 1, 1 );
         }
 
-        public static bounceBallFromPaddle( ball: Phaser.Sprite, paddle: Phaser.Sprite ) {
+        private paddleBallCollision( paddle: Phaser.Sprite, ball: Phaser.Sprite ) {
 
-            ball.body.velocity.y = -1 * ball.body.velocity.y;
+            // Get angle to center of platform from center of ball
+            let hitAngle = Global.game.physics.arcade.angleBetween( ball, paddle );
+
+            // Dictate angular velocity based on that angle
+            let xDelta = Math.cos( hitAngle );
+
+
+            ball.body.velocity.x -=
+                Phaser.Math.clamp(
+                    ball.body.speed * xDelta * this.speedFactor,
+                    -1 * this.maxSpeed,
+                    this.maxSpeed
+                );
+
+            ball.body.velocity.y = Phaser.Math.clamp(
+                ball.body.velocity.y * this.speedFactor,
+                -1 * this.maxSpeed,
+                this.maxSpeed
+            );
+
+            if ( this.speedFactor < this.speedFactorMax ) {
+
+                this.speedFactor += this.speedFactorIncrement;
+            }
+
+            return true;
         }
 
         private handleBallOutOfBounds( ball ) {

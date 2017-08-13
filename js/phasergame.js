@@ -56,9 +56,14 @@ var Breakout;
         function Play() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.paddleSpeed = 20;
-            _this.ballSpeed = 500;
+            _this.ballSpeed = 300;
+            _this.maxSpeed = 1000;
             _this.leftBoundary = 170;
             _this.rightBoundary = 900;
+            _this.speedFactor = 1;
+            _this.speedFactorIncrement = 0.01;
+            _this.speedFactorMax = 1.3;
+            _this.ballsRemaining = 3;
             return _this;
         }
         // -------------------------------------------------------------------------
@@ -66,7 +71,8 @@ var Breakout;
         };
         Play.prototype.create = function () {
             this.add.image(0, 0, 'background', 0);
-            this.paddle = this.add.sprite(468, 700, 'paddle', 0);
+            this.paddle = this.add.sprite(520, 700, 'paddle', 0);
+            this.paddle.anchor.set(0.5);
             this.physics.arcade.enable(this.paddle);
             this.paddle.physicsEnabled = true;
             this.paddle.body.immovable = true;
@@ -88,7 +94,7 @@ var Breakout;
         // -------------------------------------------------------------------------
         Play.prototype.update = function () {
             var self = this;
-            this.physics.arcade.collide(this.paddle, this.balls);
+            this.physics.arcade.collide(this.paddle, this.balls, this.paddleBallCollision, null, this);
             this.physics.arcade.collide(this.walls, this.balls);
             this.physics.arcade.collide(this.bars, this.balls, this.coll_removeBar);
             this.physics.arcade.collide(this.paddle, this.walls);
@@ -99,14 +105,14 @@ var Breakout;
             });
             if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
                 this.paddle.x -= this.paddleSpeed;
-                if (this.paddle.x <= this.leftBoundary) {
-                    this.paddle.x = this.leftBoundary + 1;
+                if (this.paddle.x - (this.paddle.width / 2) <= this.leftBoundary) {
+                    this.paddle.x = this.leftBoundary + (this.paddle.width / 2);
                 }
             }
             else if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {
                 this.paddle.x += this.paddleSpeed;
-                if (this.paddle.x + this.paddle.width >= this.rightBoundary) {
-                    this.paddle.x = this.rightBoundary - this.paddle.width + 1;
+                if (this.paddle.x + (this.paddle.width / 2) >= this.rightBoundary) {
+                    this.paddle.x = this.rightBoundary - (this.paddle.width / 2) + 1;
                 }
             }
         };
@@ -165,6 +171,7 @@ var Breakout;
             bmd.ctx.fillStyle = 'lightgray';
             bmd.ctx.fill();
             var sprite = this.add.sprite(x, y, bmd, 0, this.balls);
+            sprite.anchor.set(0.5);
             this.physics.arcade.enable(sprite);
             sprite.physicsEnabled = true;
             sprite.body.velocity.x = this.ballSpeed;
@@ -172,8 +179,18 @@ var Breakout;
             sprite.body.collideWorldBounds = false;
             sprite.body.bounce.setTo(1, 1);
         };
-        Play.bounceBallFromPaddle = function (ball, paddle) {
-            ball.body.velocity.y = -1 * ball.body.velocity.y;
+        Play.prototype.paddleBallCollision = function (paddle, ball) {
+            // Get angle to center of platform from center of ball
+            var hitAngle = Breakout.Global.game.physics.arcade.angleBetween(ball, paddle);
+            // Dictate angular velocity based on that angle
+            var xDelta = Math.cos(hitAngle);
+            ball.body.velocity.x -=
+                Phaser.Math.clamp(ball.body.speed * xDelta * this.speedFactor, -1 * this.maxSpeed, this.maxSpeed);
+            ball.body.velocity.y = Phaser.Math.clamp(ball.body.velocity.y * this.speedFactor, -1 * this.maxSpeed, this.maxSpeed);
+            if (this.speedFactor < this.speedFactorMax) {
+                this.speedFactor += this.speedFactorIncrement;
+            }
+            return true;
         };
         Play.prototype.handleBallOutOfBounds = function (ball) {
             ball.destroy();

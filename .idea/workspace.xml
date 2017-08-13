@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff400fbf-dc22-44b8-aef6-a5c896f590b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/bars.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/paddle.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bundle.js" afterPath="$PROJECT_DIR$/js/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bundle.js.map" afterPath="$PROJECT_DIR$/js/bundle.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phasergame.js" afterPath="$PROJECT_DIR$/js/phasergame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phasergame.js.map" afterPath="$PROJECT_DIR$/js/phasergame.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Boot.ts" afterPath="$PROJECT_DIR$/src/Boot.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.ts" afterPath="$PROJECT_DIR$/src/Game.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Play.ts" afterPath="$PROJECT_DIR$/src/Play.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Preload.ts" afterPath="$PROJECT_DIR$/src/Preload.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.ts" afterPath="$PROJECT_DIR$/src/app.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,19 +65,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paddle.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/paddle.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Play.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Play.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="101" column="36" lean-forward="false" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+            <state relative-caret-position="270">
+              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phasergame.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/phasergame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+              <folding>
+                <marker date="1502606821000" expanded="true" signature="1810:9043" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="1846:8999" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="1905:2184" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="2498:2509" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="2555:3314" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="3358:3548" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="3679:4865" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4077:4216" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4129:4202" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4282:4531" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4417:4517" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4600:4855" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4736:4841" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="4875:4975" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
+                <marker date="1502606821000" expanded="true" signature="5023:5480" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="5222:5470" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="5275:5456" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="5490:5551" ph="/** Setup the boundaries for the game. ...*/" />
+                <marker date="1502606821000" expanded="true" signature="5603:5803" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="5813:6143" ph="/** Create a new block from which balls will bounce from ...*/" />
+                <marker date="1502606821000" expanded="true" signature="6212:6658" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="6668:6786" ph="/** Create a new ball instance at the given coordinates ...*/" />
+                <marker date="1502606821000" expanded="true" signature="6839:7552" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="7623:8338" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="7637:7842" ph="//..." />
+                <marker date="1502606821000" expanded="true" signature="8403:8481" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="8491:8631" ph="/** Collision handler between ball and bar.  Bar gets removed from play. ...*/" />
+                <marker date="1502606821000" expanded="true" signature="8693:8735" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="8745:8851" ph="/** Is the ball out of bounds? ...*/" />
+                <marker date="1502606821000" expanded="true" signature="8901:8971" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="9075:9119" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
+                <marker date="1502606821000" expanded="true" signature="9155:10346" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="9194:10296" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="9259:9457" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="9591:9808" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="9942:9953" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="10087:10265" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="10157:10255" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="10413:10638" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="10445:10602" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="10473:10484" ph="{...}" />
+                <marker date="1502606821000" expanded="true" signature="10775:10826" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,20 +131,23 @@
       <file leaf-file-name="phaser.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/phaser.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="2" column="1301" lean-forward="false" selection-start-line="2" selection-start-column="1301" selection-end-line="2" selection-end-column="1301" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bundle.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/bundle.js">
+      <file leaf-file-name="phasergame.js.map" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/phasergame.js.map">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="29" lean-forward="false" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="sourcemapFileViewerProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -151,6 +191,10 @@
       <find>immovable</find>
       <find>isBallOutOfBounds</find>
       <find>createBall</find>
+      <find>his</find>
+      <find>bounceBallFromPaddle</find>
+      <find>speedFactor</find>
+      <find>self</find>
     </findStrings>
     <replaceStrings>
       <replace>function cbw_optimize_</replace>
@@ -181,6 +225,7 @@
         <option value="$PROJECT_DIR$/js/bundle.js" />
         <option value="$PROJECT_DIR$/src/app.ts" />
         <option value="$PROJECT_DIR$/src/Preload.ts" />
+        <option value="$PROJECT_DIR$/js/phasergame.js" />
         <option value="$PROJECT_DIR$/src/Play.ts" />
       </list>
     </option>
@@ -196,9 +241,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1125" />
-    <option name="height" value="809" />
+    <option name="x" value="131" />
+    <option name="y" value="51" />
+    <option name="width" value="1414" />
+    <option name="height" value="1033" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -240,6 +286,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="breakout-clone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="breakout-clone" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -379,24 +439,26 @@
       <option name="presentableId" value="Default" />
       <updated>1498633747973</updated>
       <workItem from="1498633749286" duration="3030000" />
-      <workItem from="1502564002403" duration="10828000" />
+      <workItem from="1502564002403" duration="15466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13858000" />
+    <option name="totallyTimeSpent" value="18496000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1125" height="809" extended-state="0" />
+    <frame x="131" y="51" width="1414" height="1033" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35843793" sideWeight="0.50323176" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2731137" sideWeight="0.50291544" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="231" y="151" width="1214" height="833" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35843793" sideWeight="0.49676824" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2731137" sideWeight="0.49708456" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32686982" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25801748" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -644,37 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/phasergame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1502592257000" expanded="true" signature="1810:2007" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="1846:1919" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="8054:8098" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
-            <marker date="1502592257000" expanded="true" signature="8134:9325" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="8173:9275" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="8238:8436" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="8570:8787" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="8921:8932" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="9066:9244" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="9136:9234" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="9392:9617" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="9424:9581" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="9452:9463" ph="{...}" />
-            <marker date="1502592257000" expanded="true" signature="9754:9805" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/phaser.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -736,10 +767,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/phaser.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="2" column="1301" lean-forward="false" selection-start-line="2" selection-start-column="1301" selection-end-line="2" selection-end-column="1301" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/phasergame.js.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/phasergame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+          <folding>
+            <marker date="1502606821000" expanded="true" signature="1810:9043" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="1846:8999" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="1905:2184" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="2498:2509" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="2555:3314" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="3358:3548" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="3679:4865" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4077:4216" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4129:4202" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4282:4531" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4417:4517" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4600:4855" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4736:4841" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="4875:4975" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
+            <marker date="1502606821000" expanded="true" signature="5023:5480" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="5222:5470" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="5275:5456" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="5490:5551" ph="/** Setup the boundaries for the game. ...*/" />
+            <marker date="1502606821000" expanded="true" signature="5603:5803" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="5813:6143" ph="/** Create a new block from which balls will bounce from ...*/" />
+            <marker date="1502606821000" expanded="true" signature="6212:6658" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="6668:6786" ph="/** Create a new ball instance at the given coordinates ...*/" />
+            <marker date="1502606821000" expanded="true" signature="6839:7552" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="8403:8481" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="8491:8631" ph="/** Collision handler between ball and bar.  Bar gets removed from play. ...*/" />
+            <marker date="1502606821000" expanded="true" signature="8693:8735" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="8745:8851" ph="/** Is the ball out of bounds? ...*/" />
+            <marker date="1502606821000" expanded="true" signature="8901:8971" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="9075:9119" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
+            <marker date="1502606821000" expanded="true" signature="9155:10346" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="9194:10296" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="9259:9457" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="9591:9808" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="9942:9953" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="10087:10265" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="10157:10255" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="10413:10638" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="10445:10602" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="10473:10484" ph="{...}" />
+            <marker date="1502606821000" expanded="true" signature="10775:10826" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Play.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="101" column="36" lean-forward="false" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+        <state relative-caret-position="270">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding />
         </state>
       </provider>
