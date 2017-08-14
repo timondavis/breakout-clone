@@ -55,10 +55,16 @@ var Breakout;
 (function (Breakout) {
     var Rectangle = Phaser.Rectangle;
     var Point = Phaser.Point;
+    var PlayState;
+    (function (PlayState) {
+        PlayState[PlayState["PLAY"] = 0] = "PLAY";
+        PlayState[PlayState["HOLD"] = 1] = "HOLD";
+    })(PlayState || (PlayState = {}));
     var Play = (function (_super) {
         __extends(Play, _super);
         function Play() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.playState = PlayState.PLAY;
             _this.paddleSpeed = 20;
             _this.ballSpeed = 300;
             _this.maxSpeed = 750;
@@ -70,6 +76,7 @@ var Breakout;
             _this.speedFactor = 1;
             _this.speedFactorIncrement = 0.01;
             _this.speedFactorMax = 1.3;
+            _this.barValue = 50;
             return _this;
         }
         // -------------------------------------------------------------------------
@@ -84,7 +91,6 @@ var Breakout;
             this.paddle.physicsEnabled = true;
             this.paddle.body.immovable = true;
             this.bars = this.add.physicsGroup();
-            this.setupBars();
             this.bars.physicsBodyType = Phaser.Physics.ARCADE;
             this.walls = this.add.physicsGroup();
             this.walls.physicsBodyType = Phaser.Physics.ARCADE;
@@ -94,6 +100,8 @@ var Breakout;
             this.createBall();
             this.scorekeeper = new Breakout.Component.Scorekeeper(new Phaser.Point(this.leftBoundary, 20), 'fat-and-tiny', null, 0, this);
             this.statusBoard = new Breakout.Component.Scorekeeper(new Phaser.Point(this.rightBoundary - 420, 20), 'fat-and-tiny', 'Balls Remaining: ', 2, this);
+            this.level = new Breakout.Component.Scorekeeper(new Phaser.Point(0, 20), 'fat-and-tiny', 'Level: ', 1, this);
+            this.setupBars();
         };
         Play.prototype.init = function () {
             this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -108,16 +116,20 @@ var Breakout;
             this.physics.arcade.collide(this.paddle, this.walls);
             this.manageOutOfBoundsBalls();
             this.handlePaddleInput();
+            if (this.barsRemaining <= 0) {
+                this.nextLevel();
+            }
         };
         /**
          * Create the bars which need to be eliminated in order to complete the game
          */
         Play.prototype.setupBars = function () {
+            var self = this;
             // Define offsets
             var xOffset = this.leftBoundary + this.insidePadding;
             var yOffset = this.topBoundary + this.insidePadding;
             // Loop through and create each bar in the grid
-            for (var row = 0; row < 4; row++) {
+            for (var row = 0; row < Phaser.Math.clamp(self.level.score, 1, 5); row++) {
                 for (var col = 0; col < 10; col++) {
                     var bar = this.add.sprite(xOffset + (col * 68), yOffset + (row * 10), 'bars', row, this.bars);
                     bar.body.immovable = true;
@@ -165,24 +177,60 @@ var Breakout;
          * @param y
          */
         Play.prototype.createBallAt = function (x, y) {
+            var self = this;
             var diameter = 25;
             // Make a circle out of thin air - this is our ball
             var bmd = Breakout.Global.game.add.bitmapData(diameter, diameter);
             bmd.ctx.beginPath();
             bmd.ctx.arc(diameter / 2, diameter / 2, diameter / 2, 0, 2 * Math.PI, false);
-            bmd.ctx.fillStyle = 'lightgray';
+            bmd.ctx.fillStyle = 'black';
             bmd.ctx.fill();
-            var sprite = this.add.sprite(x, y, bmd, 0, this.balls);
+            var sprite = this.add.sprite(x, y, bmd, 0);
             sprite.anchor.set(0.5);
-            this.physics.arcade.enable(sprite);
-            sprite.physicsEnabled = true;
-            // Pick an angle facing downward on the 2nd and 3rd quadrants
-            var rnd = new Phaser.RandomDataGenerator([Date.now()]);
-            var launchAngle = rnd.between(135, 225);
-            sprite.body.velocity.x = -1 * Math.sin((launchAngle * Math.PI) / 180) * this.ballSpeed;
-            sprite.body.velocity.y = -1 * Math.cos((launchAngle * Math.PI) / 180) * this.ballSpeed;
-            sprite.body.collideWorldBounds = false;
-            sprite.body.bounce.setTo(1, 1);
+            Breakout.Global.game.time.events.add(Phaser.Timer.SECOND * 0.3, function () {
+                // Pick an angle facing downward on the 2nd and 3rd quadrants
+                var rnd = new Phaser.RandomDataGenerator([Date.now()]);
+                var launchAngle = rnd.between(135, 225);
+                sprite.destroy(true);
+                var bmd2 = Breakout.Global.game.add.bitmapData(diameter, diameter);
+                bmd2.ctx.beginPath();
+                bmd2.ctx.arc(diameter / 2, diameter / 2, diameter / 2, 0, 2 * Math.PI, false);
+                bmd2.ctx.fillStyle = 'lightgray';
+                bmd2.ctx.fill();
+                sprite = this.add.sprite(x, y, bmd2, 0, this.balls);
+                sprite.anchor.set(0.5);
+                this.physics.arcade.enable(sprite);
+                sprite.physicsEnabled = false;
+                sprite.physicsEnabled = true;
+                sprite.body.velocity.x = -1 * Math.sin((launchAngle * Math.PI) / 180) * self.ballSpeed;
+                sprite.body.velocity.y = -1 * Math.cos((launchAngle * Math.PI) / 180) * self.ballSpeed;
+                sprite.body.collideWorldBounds = false;
+                sprite.body.bounce.setTo(1, 1);
+            }, this);
+        };
+        Object.defineProperty(Play.prototype, "barsRemaining", {
+            get: function () {
+                return this.bars.countLiving();
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Play.prototype.nextLevel = function () {
+            if (this.playState == PlayState.HOLD) {
+                return;
+            }
+            this.playState = PlayState.HOLD;
+            this.balls.removeAll(true);
+            var congrats = this.add.bitmapText(300, 400, 'fat-and-tiny', 'LEVEL CLEARED!!', 80);
+            congrats.tint = 0x00ff00;
+            Breakout.Global.game.time.events.add(Phaser.Timer.SECOND * 2, function () {
+                congrats.destroy();
+                this.createBall();
+                this.level.addToScore(1);
+                this.setupBars();
+                this.barValue = 50 * this.level.score;
+                this.playState = PlayState.PLAY;
+            }, this);
         };
         Play.prototype.paddleBallCollision = function (paddle, ball) {
             // Get angle to center of platform from center of ball
@@ -246,7 +294,13 @@ var Breakout;
          */
         Play.prototype.handleBallBarCollision = function (ball, bar) {
             bar.destroy(true);
-            this.scorekeeper.addToScore(50);
+            this.scorekeeper.addToScore(this.barValue);
+            if (this.scorekeeper.score > Breakout.Global.highScore) {
+                Breakout.Global.highScore = this.scorekeeper.score;
+            }
+        };
+        Play.prototype.clearBalls = function () {
+            this.balls.clear();
         };
         return Play;
     }(Phaser.State));
@@ -312,7 +366,7 @@ var Breakout;
             function Scorekeeper(position, font, label, score, context) {
                 this.label = (label) ? label : 'SCORE: ';
                 this._score = (score) ? score : 0;
-                this._bitmapText = context.add.bitmapText(position.x, position.y, font, this.label + this._score, 64);
+                this._bitmapText = context.add.bitmapText(position.x, position.y, font, this.label + this._score, 32);
                 this._bitmapText.smoothed = false;
                 this._bitmapText.tint = 0xff0000;
             }
@@ -366,7 +420,7 @@ var Breakout;
         GameOver.prototype.create = function () {
             this.add.bitmapText(400, 280, 'fat-and-tiny', 'GAME OVER', 64);
             this.add.bitmapText(410, 350, 'fat-and-tiny', 'Click to try again!', 32);
-            this.input.onDown.addOnce(function (e) { Breakout.Global.game.state.start('Play'); });
+            this.input.onDown.addOnce(function (e) { Breakout.Global.game.state.start('Welcome'); });
         };
         return GameOver;
     }(Phaser.State));
@@ -380,8 +434,13 @@ var Breakout;
             return _super !== null && _super.apply(this, arguments) || this;
         }
         Welcome.prototype.create = function () {
-            var title = this.add.bitmapText(100, 250, 'fat-and-tiny', 'Breakout Clone!!', 128);
+            var title = this.add.bitmapText(100, 150, 'fat-and-tiny', 'Breakout Clone!!', 128);
+            title.smoothed = false;
+            var hiscore = this.add.bitmapText(350, 380, 'fat-and-tiny', 'HI SCORE: ' + Breakout.Global.highScore, 70);
+            hiscore.smoothed = false;
+            hiscore.tint = 0xff0000;
             var cta = this.add.bitmapText(400, 450, 'fat-and-tiny', 'click to start!', 40);
+            cta.smoothed = false;
             this.input.onDown.addOnce(function (e) { Breakout.Global.game.state.start("Play"); });
         };
         return Welcome;

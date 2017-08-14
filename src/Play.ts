@@ -1,7 +1,12 @@
 namespace Breakout {
     import Rectangle = Phaser.Rectangle;
     import Point = Phaser.Point;
+
+    enum PlayState { PLAY, HOLD }
+
     export class Play extends Phaser.State {
+
+        private playState : PlayState = PlayState.PLAY;
 
         private paddle: Phaser.Sprite;
         private bars: Phaser.Group;
@@ -23,10 +28,14 @@ namespace Breakout {
         private speedFactorIncrement = 0.01;
         private speedFactorMax = 1.3;
 
+        private barValue = 50;
+
         private newBallZone : Rectangle;
 
         private scorekeeper: Breakout.Component.Scorekeeper;
         private statusBoard: Breakout.Component.Scorekeeper;
+        private level: Breakout.Component.Scorekeeper;
+
 
 
 // -------------------------------------------------------------------------
@@ -39,6 +48,7 @@ namespace Breakout {
                 ( this.rightBoundary - this.insidePadding ) - (this.leftBoundary + this.insidePadding),
                 (this.bottomBoundary - this.topBoundary ) / 3,
             );
+
         }
 
         public create() {
@@ -52,7 +62,6 @@ namespace Breakout {
             this.paddle.body.immovable = true;
 
             this.bars = this.add.physicsGroup();
-            this.setupBars();
             this.bars.physicsBodyType = Phaser.Physics.ARCADE;
 
             this.walls = this.add.physicsGroup();
@@ -69,6 +78,11 @@ namespace Breakout {
             this.statusBoard = new Breakout.Component.Scorekeeper(
                 new Phaser.Point( this.rightBoundary - 420, 20 ),
                 'fat-and-tiny', 'Balls Remaining: ', 2, this );
+            this.level = new Breakout.Component.Scorekeeper( new Phaser.Point( 0, 20 ) ,
+                'fat-and-tiny', 'Level: ', 1, this );
+
+
+            this.setupBars();
         }
 
         public init() {
@@ -89,6 +103,11 @@ namespace Breakout {
 
             this.manageOutOfBoundsBalls();
             this.handlePaddleInput();
+
+            if ( this.barsRemaining <= 0 ) {
+
+                this.nextLevel();
+            }
         }
 
         /**
@@ -96,12 +115,14 @@ namespace Breakout {
          */
         public setupBars() {
 
+            let self = this;
+
             // Define offsets
             let xOffset = this.leftBoundary + this.insidePadding;
             let yOffset = this.topBoundary + this.insidePadding;
 
             // Loop through and create each bar in the grid
-            for ( let row = 0 ; row < 4 ; row++ ) {
+            for ( let row = 0 ; row < Phaser.Math.clamp( self.level.score,  1, 5) ; row++ ) {
 
                 for ( let col = 0 ; col < 10 ; col++ )  {
 
@@ -156,7 +177,6 @@ namespace Breakout {
         public createBall() {
 
             let newBallPoint = new Point();
-
             this.newBallZone.random( newBallPoint );
 
             this.createBallAt( newBallPoint.x, newBallPoint.y );
@@ -169,29 +189,78 @@ namespace Breakout {
          */
         public createBallAt( x, y ) {
 
+            let self = this;
+
             let diameter = 25;
 
             // Make a circle out of thin air - this is our ball
             let bmd = Global.game.add.bitmapData( diameter, diameter );
             bmd.ctx.beginPath();
             bmd.ctx.arc( diameter/2, diameter/2, diameter / 2, 0, 2 * Math.PI, false );
-            bmd.ctx.fillStyle = 'lightgray';
+            bmd.ctx.fillStyle = 'black';
             bmd.ctx.fill();
 
-            let sprite = this.add.sprite( x, y, bmd, 0, this.balls );
+            let sprite = this.add.sprite( x, y, bmd, 0 );
             sprite.anchor.set( 0.5 );
-            this.physics.arcade.enable( sprite );
-            sprite.physicsEnabled = true;
 
-            // Pick an angle facing downward on the 2nd and 3rd quadrants
-            let rnd = new Phaser.RandomDataGenerator( [ Date.now() ] );
-            let launchAngle = rnd.between( 135 , 225 );
 
-            sprite.body.velocity.x = -1 * Math.sin( ( launchAngle * Math.PI ) / 180 ) * this.ballSpeed;
-            sprite.body.velocity.y = -1 * Math.cos( ( launchAngle * Math.PI ) / 180 ) * this.ballSpeed;
+            Global.game.time.events.add( Phaser.Timer.SECOND * 0.3, function() {
 
-            sprite.body.collideWorldBounds = false;
-            sprite.body.bounce.setTo( 1, 1 );
+                // Pick an angle facing downward on the 2nd and 3rd quadrants
+                let rnd = new Phaser.RandomDataGenerator( [ Date.now() ] );
+                let launchAngle = rnd.between( 135 , 225 );
+
+                sprite.destroy( true );
+
+                let bmd2 = Global.game.add.bitmapData( diameter, diameter );
+                bmd2.ctx.beginPath();
+                bmd2.ctx.arc( diameter/2, diameter/2, diameter / 2, 0, 2 * Math.PI, false );
+                bmd2.ctx.fillStyle = 'lightgray';
+                bmd2.ctx.fill();
+
+                sprite = this.add.sprite( x, y, bmd2, 0, this.balls );
+                sprite.anchor.set( 0.5 );
+                this.physics.arcade.enable( sprite );
+                sprite.physicsEnabled = false;
+
+                sprite.physicsEnabled = true;
+                sprite.body.velocity.x = -1 * Math.sin( ( launchAngle * Math.PI ) / 180 ) * self.ballSpeed;
+                sprite.body.velocity.y = -1 * Math.cos( ( launchAngle * Math.PI ) / 180 ) * self.ballSpeed;
+
+                sprite.body.collideWorldBounds = false;
+                sprite.body.bounce.setTo( 1, 1 );
+
+            }, this );
+        }
+
+        private get barsRemaining(): number {
+
+            return this.bars.countLiving();
+        }
+
+        private nextLevel() {
+
+            if ( this.playState == PlayState.HOLD ) { return; }
+            this.playState = PlayState.HOLD;
+
+            this.balls.removeAll( true );
+
+            let congrats = this.add.bitmapText( 300, 400, 'fat-and-tiny', 'LEVEL CLEARED!!', 80 );
+            congrats.tint = 0x00ff00;
+
+            Global.game.time.events.add( Phaser.Timer.SECOND * 2, function() {
+
+                congrats.destroy();
+                this.createBall();
+                this.level.addToScore( 1 );
+                this.setupBars();
+
+                this.barValue = 50 * this.level.score;
+
+                this.playState = PlayState.PLAY;
+
+            }, this );
+
         }
 
         private paddleBallCollision( paddle: Phaser.Sprite, ball: Phaser.Sprite ) {
@@ -291,7 +360,17 @@ namespace Breakout {
         private handleBallBarCollision( ball: Phaser.Sprite, bar: Phaser.Sprite ) {
 
             bar.destroy( true );
-            this.scorekeeper.addToScore( 50 );
+            this.scorekeeper.addToScore( this.barValue );
+
+            if ( this.scorekeeper.score > Global.highScore ) {
+
+                Global.highScore = this.scorekeeper.score;
+            }
+        }
+
+        private clearBalls() {
+
+            this.balls.clear();
         }
     }
 }

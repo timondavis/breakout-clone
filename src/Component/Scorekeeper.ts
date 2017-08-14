@@ -12,7 +12,7 @@ namespace Breakout.Component {
             this.label = ( label ) ? label : 'SCORE: ';
             this._score = ( score ) ? score : 0;
 
-            this._bitmapText = context.add.bitmapText( position.x, position.y, font, this.label + this._score , 64 );
+            this._bitmapText = context.add.bitmapText( position.x, position.y, font, this.label + this._score , 32 );
             this._bitmapText.smoothed = false;
             this._bitmapText.tint = 0xff0000;
         }

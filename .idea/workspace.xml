@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff400fbf-dc22-44b8-aef6-a5c896f590b2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fat-and-tiny.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fat-and-tiny.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Component/Scorekeeper.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameOver.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Welcome.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bundle.js" afterPath="$PROJECT_DIR$/js/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bundle.js.map" afterPath="$PROJECT_DIR$/js/bundle.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phasergame.js" afterPath="$PROJECT_DIR$/js/phasergame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phasergame.js.map" afterPath="$PROJECT_DIR$/js/phasergame.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.ts" afterPath="$PROJECT_DIR$/src/Game.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Component/Scorekeeper.ts" afterPath="$PROJECT_DIR$/src/Component/Scorekeeper.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameOver.ts" afterPath="$PROJECT_DIR$/src/GameOver.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Play.ts" afterPath="$PROJECT_DIR$/src/Play.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Preload.ts" afterPath="$PROJECT_DIR$/src/Preload.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.ts" afterPath="$PROJECT_DIR$/src/app.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Welcome.ts" afterPath="$PROJECT_DIR$/src/Welcome.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/src/GameOver.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="80" lean-forward="false" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+              <caret line="10" column="87" lean-forward="false" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -84,28 +77,28 @@
       <file leaf-file-name="Scorekeeper.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Component/Scorekeeper.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="360">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Play.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Play.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Play.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+            <state relative-caret-position="567">
+              <caret line="257" column="36" lean-forward="false" selection-start-line="257" selection-start-column="36" selection-end-line="257" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Welcome.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Welcome.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Welcome.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+            <state relative-caret-position="150">
+              <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -146,8 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>start_tracking</find>
-      <find>G</find>
       <find>GoblinR</find>
       <find>GoblinRun</find>
       <find>g</find>
@@ -169,6 +160,15 @@
       <find>bitmap</find>
       <find>length</find>
       <find>setScore</find>
+      <find>50</find>
+      <find>fill</find>
+      <find>f</find>
+      <find>setup</find>
+      <find>time</find>
+      <find>setupBars</find>
+      <find>balls.clear</find>
+      <find>nextLevel</find>
+      <find>barValue</find>
     </findStrings>
     <replaceStrings>
       <replace>function cbw_optimize_</replace>
@@ -198,12 +198,12 @@
         <option value="$PROJECT_DIR$/js/bundle.js" />
         <option value="$PROJECT_DIR$/js/phasergame.js" />
         <option value="$PROJECT_DIR$/src/app.ts" />
-        <option value="$PROJECT_DIR$/src/GameOver.ts" />
-        <option value="$PROJECT_DIR$/src/Component/Scorekeeper.ts" />
-        <option value="$PROJECT_DIR$/src/Play.ts" />
         <option value="$PROJECT_DIR$/src/Game.ts" />
         <option value="$PROJECT_DIR$/src/Preload.ts" />
+        <option value="$PROJECT_DIR$/src/GameOver.ts" />
         <option value="$PROJECT_DIR$/src/Welcome.ts" />
+        <option value="$PROJECT_DIR$/src/Component/Scorekeeper.ts" />
+        <option value="$PROJECT_DIR$/src/Play.ts" />
       </list>
     </option>
   </component>
@@ -438,12 +438,12 @@
       <updated>1498633747973</updated>
       <workItem from="1498633749286" duration="3030000" />
       <workItem from="1502564002403" duration="22142000" />
-      <workItem from="1502693008536" duration="2762000" />
+      <workItem from="1502693008536" duration="5965000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27934000" />
+    <option name="totallyTimeSpent" value="31137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="215" y="111" width="1414" height="1033" extended-state="0" />
@@ -762,48 +762,48 @@
         <state relative-caret-position="4365">
           <caret line="301" column="28" lean-forward="false" selection-start-line="301" selection-start-column="28" selection-end-line="301" selection-end-column="28" />
           <folding>
-            <marker date="1502696901000" expanded="true" signature="1127:1864" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="1163:1821" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="1222:1794" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="1931:9675" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="2035:9675" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="2094:2690" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="2821:3095" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="4014:4193" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="4237:4427" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="4558:4990" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="5000:5100" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
-            <marker date="1502696901000" expanded="true" signature="5148:5675" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="5417:5665" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="5470:5651" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="5685:5746" ph="/** Setup the boundaries for the game. ...*/" />
-            <marker date="1502696901000" expanded="true" signature="5798:6188" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="6198:6528" ph="/** Create a new block from which balls will bounce from ...*/" />
-            <marker date="1502696901000" expanded="true" signature="6597:7027" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="7037:7105" ph="/** Create a new ball in the appropriate zone ...*/" />
-            <marker date="1502696901000" expanded="true" signature="7154:7323" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="7333:7451" ph="/** Create a new ball instance at the given coordinates ...*/" />
-            <marker date="1502696901000" expanded="true" signature="7506:8572" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="8643:9425" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="9312:9390" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="9487:9675" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="9565:9675" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="9617:9675" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="11485:11529" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
-            <marker date="1502696901000" expanded="true" signature="11565:12825" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="11604:12775" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="11669:11867" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12001:12284" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12418:12429" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12563:12744" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12633:12734" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12892:13147" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12924:13111" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="12952:12963" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="13284:13335" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="13372:14340" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="13419:14340" ph="{...}" />
-            <marker date="1502696901000" expanded="true" signature="13460:13495" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="1127:1864" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="1163:1821" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="1222:1794" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="1931:1941" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="2035:2204" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="2094:2204" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="2884:3158" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="4077:4378" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="4422:4612" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="4743:5275" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="5161:5261" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
+            <marker date="1502700976000" expanded="true" signature="5773:5987" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="5773:5977" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="5782:5963" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="5997:6058" ph="/** Setup the boundaries for the game. ...*/" />
+            <marker date="1502700976000" expanded="true" signature="6110:6500" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="6510:6840" ph="/** Create a new block from which balls will bounce from ...*/" />
+            <marker date="1502700976000" expanded="true" signature="6909:7339" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="7349:7417" ph="/** Create a new ball in the appropriate zone ...*/" />
+            <marker date="1502700976000" expanded="true" signature="7466:7635" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="7645:7763" ph="/** Create a new ball instance at the given coordinates ...*/" />
+            <marker date="1502700976000" expanded="true" signature="7818:8319" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="8839:9621" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="9508:9586" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="9683:9871" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="9761:9871" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="9813:9871" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="13908:13952" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
+            <marker date="1502700976000" expanded="true" signature="13988:15248" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="14027:15198" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="14092:14290" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="14424:14707" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="14841:14852" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="14986:15167" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15056:15157" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15315:15570" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15347:15534" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15375:15386" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15707:15758" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15795:16763" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15842:16763" ph="{...}" />
+            <marker date="1502700976000" expanded="true" signature="15883:15918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -847,30 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameOver.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="80" lean-forward="false" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Component/Scorekeeper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Play.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -893,8 +869,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Welcome.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        <state relative-caret-position="150">
+          <caret line="10" column="54" lean-forward="false" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameOver.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="87" lean-forward="false" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Component/Scorekeeper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Play.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="257" column="36" lean-forward="false" selection-start-line="257" selection-start-column="36" selection-end-line="257" selection-end-column="36" />
           <folding />
         </state>
       </provider>
