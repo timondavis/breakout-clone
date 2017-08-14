@@ -11,6 +11,7 @@ namespace Breakout {
             Global.game.load.path = 'assets/';
 
             Global.game.load.images([ 'paddle', 'background' ]);
+            Global.game.load.bitmapFont( 'fat-and-tiny' );
 
             Global.game.load.spritesheet( 'bars', 'bars.png', 64, 3 );
         }
@@ -23,7 +24,7 @@ namespace Breakout {
             // run only once
             if (this._ready === false) {
                 this._ready = true;
-                this.game.state.start( "Play" );
+                this.game.state.start( "Welcome" );
             }
         }
     }

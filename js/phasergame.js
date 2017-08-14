@@ -41,8 +41,10 @@ var Breakout;
             _this.state.add("Boot", Breakout.Boot);
             _this.state.add("Preload", Breakout.Preload);
             _this.state.add("Play", Breakout.Play);
+            _this.state.add("GameOver", Breakout.GameOver);
+            _this.state.add("Welcome", Breakout.Welcome);
             // start
-            _this.state.start("Boot");
+            _this.state.start("Preload");
             return _this;
         }
         return Game;
@@ -68,7 +70,6 @@ var Breakout;
             _this.speedFactor = 1;
             _this.speedFactorIncrement = 0.01;
             _this.speedFactorMax = 1.3;
-            _this.ballsRemaining = 3;
             return _this;
         }
         // -------------------------------------------------------------------------
@@ -91,6 +92,8 @@ var Breakout;
             this.balls.physicsBodyType = Phaser.Physics.ARCADE;
             this.setupBoundary();
             this.createBall();
+            this.scorekeeper = new Breakout.Component.Scorekeeper(new Phaser.Point(this.leftBoundary, 20), 'fat-and-tiny', null, 0, this);
+            this.statusBoard = new Breakout.Component.Scorekeeper(new Phaser.Point(this.rightBoundary - 420, 20), 'fat-and-tiny', 'Balls Remaining: ', 2, this);
         };
         Play.prototype.init = function () {
             this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -101,7 +104,7 @@ var Breakout;
         Play.prototype.update = function () {
             this.physics.arcade.collide(this.paddle, this.balls, this.paddleBallCollision, null, this);
             this.physics.arcade.collide(this.walls, this.balls);
-            this.physics.arcade.collide(this.bars, this.balls, this.coll_removeBar);
+            this.physics.arcade.collide(this.balls, this.bars, this.handleBallBarCollision, null, this);
             this.physics.arcade.collide(this.paddle, this.walls);
             this.manageOutOfBoundsBalls();
             this.handlePaddleInput();
@@ -138,7 +141,7 @@ var Breakout;
          * @paray y: The y param of the target placement location
          */
         Play.prototype.createBlock = function (length, width, x, y) {
-            var bmd = Breakout.Global.game.add.bitmapData(Math.abs(length), Math.abs(width));
+            var bmd = this.add.bitmapData(Math.abs(length), Math.abs(width));
             bmd.ctx.beginPath();
             bmd.ctx.rect(0, 0, Math.abs(length), Math.abs(width));
             bmd.ctx.fillStyle = '#000000';
@@ -200,17 +203,15 @@ var Breakout;
             this.balls.forEach(function (ball) {
                 if (Play.isBallOutOfBounds(ball)) {
                     ball.destroy();
-                    self.createBall();
+                    if ((self.statusBoard.score - 1) < 0) {
+                        self.game.state.start("GameOver");
+                    }
+                    else {
+                        self.statusBoard.addToScore(-1);
+                        self.createBall();
+                    }
                 }
             });
-        };
-        /**
-         * Collision handler between ball and bar.  Bar gets removed from play.
-         * @param bar
-         * @param ball
-         */
-        Play.prototype.coll_removeBar = function (bar, ball) {
-            bar.destroy(true);
         };
         /**
          * Is the ball out of bounds?
@@ -237,6 +238,16 @@ var Breakout;
                 }
             }
         };
+        /**
+         * Handle the collision between a bar and a ball.  Increment the score and remove the bar from play.
+         * @param ball
+         * @param bar
+         * @returns {boolean}
+         */
+        Play.prototype.handleBallBarCollision = function (ball, bar) {
+            bar.destroy(true);
+            this.scorekeeper.addToScore(50);
+        };
         return Play;
     }(Phaser.State));
     Breakout.Play = Play;
@@ -258,6 +269,7 @@ var Breakout;
         Preload.prototype.preload = function () {
             Breakout.Global.game.load.path = 'assets/';
             Breakout.Global.game.load.images(['paddle', 'background']);
+            Breakout.Global.game.load.bitmapFont('fat-and-tiny');
             Breakout.Global.game.load.spritesheet('bars', 'bars.png', 64, 3);
         };
         // -------------------------------------------------------------------------
@@ -268,7 +280,7 @@ var Breakout;
             // run only once
             if (this._ready === false) {
                 this._ready = true;
-                this.game.state.start("Play");
+                this.game.state.start("Welcome");
             }
         };
         return Preload;
@@ -283,6 +295,7 @@ var Breakout;
         // game size
         Global.GAME_WIDTH = 1024;
         Global.GAME_HEIGHT = 768;
+        Global.highScore = 0;
         return Global;
     }());
     Breakout.Global = Global;
@@ -291,4 +304,88 @@ var Breakout;
 window.onload = function () {
     Breakout.Global.game = new Breakout.Game();
 };
+var Breakout;
+(function (Breakout) {
+    var Component;
+    (function (Component) {
+        var Scorekeeper = (function () {
+            function Scorekeeper(position, font, label, score, context) {
+                this.label = (label) ? label : 'SCORE: ';
+                this._score = (score) ? score : 0;
+                this._bitmapText = context.add.bitmapText(position.x, position.y, font, this.label + this._score, 64);
+                this._bitmapText.smoothed = false;
+                this._bitmapText.tint = 0xff0000;
+            }
+            /**
+             * Add the indicated value to the score.  May be negative.
+             * @param val: number  The value by which to adjust the score.
+             */
+            Scorekeeper.prototype.addToScore = function (val) {
+                this._score += val;
+                this._bitmapText.text = this.label + this._score;
+            };
+            Object.defineProperty(Scorekeeper.prototype, "score", {
+                get: function () {
+                    return this._score;
+                },
+                /**
+                 * The the new value for the score
+                 *
+                 * @param val: number  The new score value
+                 */
+                set: function (val) {
+                    this._score = val;
+                    this._bitmapText.text = this.label + this._score;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(Scorekeeper.prototype, "length", {
+                /**
+                 * The length, in px, of this scorebox on display
+                 * @returns {number}
+                 */
+                get: function () {
+                    return this._bitmapText.width;
+                },
+                enumerable: true,
+                configurable: true
+            });
+            return Scorekeeper;
+        }());
+        Component.Scorekeeper = Scorekeeper;
+    })(Component = Breakout.Component || (Breakout.Component = {}));
+})(Breakout || (Breakout = {}));
+var Breakout;
+(function (Breakout) {
+    var GameOver = (function (_super) {
+        __extends(GameOver, _super);
+        function GameOver() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        GameOver.prototype.create = function () {
+            this.add.bitmapText(400, 280, 'fat-and-tiny', 'GAME OVER', 64);
+            this.add.bitmapText(410, 350, 'fat-and-tiny', 'Click to try again!', 32);
+            this.input.onDown.addOnce(function (e) { Breakout.Global.game.state.start('Play'); });
+        };
+        return GameOver;
+    }(Phaser.State));
+    Breakout.GameOver = GameOver;
+})(Breakout || (Breakout = {}));
+var Breakout;
+(function (Breakout) {
+    var Welcome = (function (_super) {
+        __extends(Welcome, _super);
+        function Welcome() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        Welcome.prototype.create = function () {
+            var title = this.add.bitmapText(100, 250, 'fat-and-tiny', 'Breakout Clone!!', 128);
+            var cta = this.add.bitmapText(400, 450, 'fat-and-tiny', 'click to start!', 40);
+            this.input.onDown.addOnce(function (e) { Breakout.Global.game.state.start("Play"); });
+        };
+        return Welcome;
+    }(Phaser.State));
+    Breakout.Welcome = Welcome;
+})(Breakout || (Breakout = {}));
 //# sourceMappingURL=phasergame.js.map

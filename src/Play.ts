@@ -25,12 +25,14 @@ namespace Breakout {
 
         private newBallZone : Rectangle;
 
-        private ballsRemaining = 3;
+        private scorekeeper: Breakout.Component.Scorekeeper;
+        private statusBoard: Breakout.Component.Scorekeeper;
 
 
 // -------------------------------------------------------------------------
 
         public preload() {
+
 
             this.newBallZone = new Rectangle(
                 this.leftBoundary + this.insidePadding, (this.bottomBoundary - this.topBoundary ) / 2,
@@ -61,6 +63,12 @@ namespace Breakout {
 
             this.setupBoundary();
             this.createBall();
+
+            this.scorekeeper = new Breakout.Component.Scorekeeper( new Phaser.Point( this.leftBoundary , 20  ),
+                'fat-and-tiny', null, 0, this );
+            this.statusBoard = new Breakout.Component.Scorekeeper(
+                new Phaser.Point( this.rightBoundary - 420, 20 ),
+                'fat-and-tiny', 'Balls Remaining: ', 2, this );
         }
 
         public init() {
@@ -76,7 +84,7 @@ namespace Breakout {
 
             this.physics.arcade.collide( this.paddle, this.balls, this.paddleBallCollision, null, this );
             this.physics.arcade.collide( this.walls, this.balls );
-            this.physics.arcade.collide( this.bars, this.balls, this.coll_removeBar);
+            this.physics.arcade.collide( this.balls, this.bars, this.handleBallBarCollision, null, this);
             this.physics.arcade.collide( this.paddle, this.walls );
 
             this.manageOutOfBoundsBalls();
@@ -129,7 +137,7 @@ namespace Breakout {
          */
         public createBlock( length, width, x, y ) {
 
-           let bmd = Global.game.add.bitmapData( Math.abs(length), Math.abs(width) );
+           let bmd = this.add.bitmapData( Math.abs(length), Math.abs(width) );
 
            bmd.ctx.beginPath();
            bmd.ctx.rect( 0, 0, Math.abs(length), Math.abs(width));
@@ -226,19 +234,17 @@ namespace Breakout {
                 if ( Play.isBallOutOfBounds( ball ) ) {
 
                     ball.destroy();
-                    self.createBall();
+                    if ( ( self.statusBoard.score -1 ) < 0 ) {
+
+                        self.game.state.start( "GameOver" );
+                    }
+                    else {
+
+                        self.statusBoard.addToScore( -1 );
+                        self.createBall();
+                    }
                 }
             });
-        }
-
-        /**
-         * Collision handler between ball and bar.  Bar gets removed from play.
-         * @param bar
-         * @param ball
-         */
-        private coll_removeBar( bar: Phaser.Sprite, ball: Phaser.Sprite ) {
-
-            bar.destroy( true );
         }
 
         /**
@@ -274,6 +280,18 @@ namespace Breakout {
                     this.paddle.x = this.rightBoundary - ( this.paddle.width / 2 ) + 1;
                 }
             }
+        }
+
+        /**
+         * Handle the collision between a bar and a ball.  Increment the score and remove the bar from play.
+         * @param ball
+         * @param bar
+         * @returns {boolean}
+         */
+        private handleBallBarCollision( ball: Phaser.Sprite, bar: Phaser.Sprite ) {
+
+            bar.destroy( true );
+            this.scorekeeper.addToScore( 50 );
         }
     }
 }

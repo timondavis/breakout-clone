@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff400fbf-dc22-44b8-aef6-a5c896f590b2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fat-and-tiny.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/fat-and-tiny.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Component/Scorekeeper.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameOver.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Welcome.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bundle.js" afterPath="$PROJECT_DIR$/js/bundle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bundle.js.map" afterPath="$PROJECT_DIR$/js/bundle.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phasergame.js" afterPath="$PROJECT_DIR$/js/phasergame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/phasergame.js.map" afterPath="$PROJECT_DIR$/js/phasergame.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game.ts" afterPath="$PROJECT_DIR$/src/Game.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Play.ts" afterPath="$PROJECT_DIR$/src/Play.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Preload.ts" afterPath="$PROJECT_DIR$/src/Preload.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.ts" afterPath="$PROJECT_DIR$/src/app.ts" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +30,8 @@
       <file leaf-file-name="Game.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+            <state relative-caret-position="195">
+              <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
               <folding>
                 <element signature="n#!!doc;n#Breakout#0" expanded="false" />
               </folding>
@@ -32,8 +42,28 @@
       <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameOver.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameOver.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="80" lean-forward="false" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -42,8 +72,8 @@
       <file leaf-file-name="Preload.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Preload.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="26" column="46" lean-forward="false" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
               <folding>
                 <element signature="n#!!doc;n#Breakout#0" expanded="false" />
               </folding>
@@ -51,74 +81,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="background.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/background.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="Scorekeeper.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Component/Scorekeeper.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bars.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/bars.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Play.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Play.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Play.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="90">
+              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phasergame.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/phasergame.js">
+      <file leaf-file-name="Welcome.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Welcome.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="289" column="28" lean-forward="false" selection-start-line="289" selection-start-column="28" selection-end-line="289" selection-end-column="28" />
-              <folding>
-                <marker date="1502649754000" expanded="true" signature="1810:10703" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="10735:10779" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
-                <marker date="1502649754000" expanded="true" signature="10815:12006" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="10854:11956" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="10919:11117" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="11251:11468" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="11602:11613" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="11747:11925" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="11817:11915" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="12073:12298" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="12105:12262" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="12133:12144" ph="{...}" />
-                <marker date="1502649754000" expanded="true" signature="12435:12486" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phaser.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/phaser.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="2" column="1301" lean-forward="false" selection-start-line="2" selection-start-column="1301" selection-end-line="2" selection-end-column="1301" />
+            <state relative-caret-position="120">
+              <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phasergame.js.map" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/phasergame.js.map">
+      <file leaf-file-name="fat-and-tiny.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/fat-and-tiny.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="sourcemapFileViewerProvider">
-            <state />
           </provider>
         </entry>
       </file>
@@ -167,6 +166,9 @@
       <find>self</find>
       <find>createBall</find>
       <find>seek</find>
+      <find>bitmap</find>
+      <find>length</find>
+      <find>setScore</find>
     </findStrings>
     <replaceStrings>
       <replace>function cbw_optimize_</replace>
@@ -186,7 +188,6 @@
       <list>
         <option value="$PROJECT_DIR$/lib/phaser.d.ts" />
         <option value="$PROJECT_DIR$/css/app.css" />
-        <option value="$PROJECT_DIR$/src/Game.ts" />
         <option value="$PROJECT_DIR$/src/app.js" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
@@ -195,10 +196,14 @@
         <option value="$PROJECT_DIR$/src/Boot.ts" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/bundle.js" />
-        <option value="$PROJECT_DIR$/src/app.ts" />
-        <option value="$PROJECT_DIR$/src/Preload.ts" />
         <option value="$PROJECT_DIR$/js/phasergame.js" />
+        <option value="$PROJECT_DIR$/src/app.ts" />
+        <option value="$PROJECT_DIR$/src/GameOver.ts" />
+        <option value="$PROJECT_DIR$/src/Component/Scorekeeper.ts" />
         <option value="$PROJECT_DIR$/src/Play.ts" />
+        <option value="$PROJECT_DIR$/src/Game.ts" />
+        <option value="$PROJECT_DIR$/src/Preload.ts" />
+        <option value="$PROJECT_DIR$/src/Welcome.ts" />
       </list>
     </option>
   </component>
@@ -213,8 +218,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="51" />
+    <option name="x" value="215" />
+    <option name="y" value="111" />
     <option name="width" value="1414" />
     <option name="height" value="1033" />
   </component>
@@ -233,8 +238,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,6 +274,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Component" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="breakout-clone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="breakout-clone" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -291,6 +312,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,6 +324,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/js" />
@@ -411,37 +437,38 @@
       <option name="presentableId" value="Default" />
       <updated>1498633747973</updated>
       <workItem from="1498633749286" duration="3030000" />
-      <workItem from="1502564002403" duration="19008000" />
+      <workItem from="1502564002403" duration="22142000" />
+      <workItem from="1502693008536" duration="2762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22038000" />
+    <option name="totallyTimeSpent" value="27934000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="51" width="1414" height="1033" extended-state="0" />
+    <frame x="215" y="111" width="1414" height="1033" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2731137" sideWeight="0.50291544" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="231" y="151" width="1214" height="833" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2731137" sideWeight="0.49708456" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25801748" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2616618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="349" y="272" width="1214" height="833" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -461,6 +488,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/phasergame.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Boot.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc;n#Breakout#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Component/Scorekeeper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -522,7 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -530,9 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -540,7 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -586,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -602,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -610,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -618,31 +666,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#44#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/bundle.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="921" lean-forward="false" selection-start-line="0" selection-start-column="921" selection-end-line="0" selection-end-column="921" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/goblinrun.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goblinrun.js" />
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5331">
@@ -674,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -701,6 +738,89 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/phaser.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1301" lean-forward="false" selection-start-line="2" selection-start-column="1301" selection-end-line="2" selection-end-column="1301" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/phasergame.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/phasergame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4365">
+          <caret line="301" column="28" lean-forward="false" selection-start-line="301" selection-start-column="28" selection-end-line="301" selection-end-column="28" />
+          <folding>
+            <marker date="1502696901000" expanded="true" signature="1127:1864" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="1163:1821" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="1222:1794" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="1931:9675" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="2035:9675" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="2094:2690" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="2821:3095" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="4014:4193" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="4237:4427" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="4558:4990" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="5000:5100" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
+            <marker date="1502696901000" expanded="true" signature="5148:5675" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="5417:5665" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="5470:5651" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="5685:5746" ph="/** Setup the boundaries for the game. ...*/" />
+            <marker date="1502696901000" expanded="true" signature="5798:6188" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="6198:6528" ph="/** Create a new block from which balls will bounce from ...*/" />
+            <marker date="1502696901000" expanded="true" signature="6597:7027" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="7037:7105" ph="/** Create a new ball in the appropriate zone ...*/" />
+            <marker date="1502696901000" expanded="true" signature="7154:7323" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="7333:7451" ph="/** Create a new ball instance at the given coordinates ...*/" />
+            <marker date="1502696901000" expanded="true" signature="7506:8572" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="8643:9425" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="9312:9390" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="9487:9675" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="9565:9675" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="9617:9675" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="11485:11529" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
+            <marker date="1502696901000" expanded="true" signature="11565:12825" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="11604:12775" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="11669:11867" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12001:12284" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12418:12429" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12563:12744" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12633:12734" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12892:13147" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12924:13111" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="12952:12963" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="13284:13335" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="13372:14340" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="13419:14340" ph="{...}" />
+            <marker date="1502696901000" expanded="true" signature="13460:13495" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/fat-and-tiny.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/fat-and-tiny.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Boot.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -711,79 +831,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Preload.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#Breakout#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!doc;n#Breakout#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/phaser.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="2" column="1301" lean-forward="false" selection-start-line="2" selection-start-column="1301" selection-end-line="2" selection-end-column="1301" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/phasergame.js.map">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/phasergame.js">
+    <entry file="file://$PROJECT_DIR$/src/GameOver.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="289" column="28" lean-forward="false" selection-start-line="289" selection-start-column="28" selection-end-line="289" selection-end-column="28" />
-          <folding>
-            <marker date="1502649754000" expanded="true" signature="1810:10703" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="10735:10779" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
-            <marker date="1502649754000" expanded="true" signature="10815:12006" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="10854:11956" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="10919:11117" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="11251:11468" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="11602:11613" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="11747:11925" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="11817:11915" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="12073:12298" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="12105:12262" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="12133:12144" ph="{...}" />
-            <marker date="1502649754000" expanded="true" signature="12435:12486" ph="{...}" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="80" lean-forward="false" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Component/Scorekeeper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Play.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        <state relative-caret-position="90">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="48" lean-forward="false" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!doc;n#Breakout#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Preload.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="46" lean-forward="false" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!doc;n#Breakout#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Welcome.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
           <folding />
         </state>
       </provider>

@@ -8,6 +8,7 @@ var Breakout;
         // game size
         Global.GAME_WIDTH = 1024;
         Global.GAME_HEIGHT = 768;
+        Global.highScore = 0;
         return Global;
     }();
     Breakout.Global = Global;
