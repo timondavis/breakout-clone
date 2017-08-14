@@ -1,4 +1,6 @@
 namespace Breakout {
+    import Rectangle = Phaser.Rectangle;
+    import Point = Phaser.Point;
     export class Play extends Phaser.State {
 
         private paddle: Phaser.Sprite;
@@ -9,14 +11,19 @@ namespace Breakout {
 
         private paddleSpeed = 20;
         private ballSpeed = 300;
-        private maxSpeed = 1000;
+        private maxSpeed = 750;
 
-        private leftBoundary = 170;
-        private rightBoundary = 900;
+        private leftBoundary = 130;
+        private rightBoundary = Global.GAME_WIDTH - 130;
+        private topBoundary = 100;
+        private bottomBoundary = Global.GAME_HEIGHT - 50;
+        private insidePadding = 50;
 
         private speedFactor = 1;
         private speedFactorIncrement = 0.01;
         private speedFactorMax = 1.3;
+
+        private newBallZone : Rectangle;
 
         private ballsRemaining = 3;
 
@@ -25,6 +32,11 @@ namespace Breakout {
 
         public preload() {
 
+            this.newBallZone = new Rectangle(
+                this.leftBoundary + this.insidePadding, (this.bottomBoundary - this.topBoundary ) / 2,
+                ( this.rightBoundary - this.insidePadding ) - (this.leftBoundary + this.insidePadding),
+                (this.bottomBoundary - this.topBoundary ) / 3,
+            );
         }
 
         public create() {
@@ -48,7 +60,7 @@ namespace Breakout {
             this.balls.physicsBodyType = Phaser.Physics.ARCADE;
 
             this.setupBoundary();
-            this.createBall( 400, 600 );
+            this.createBall();
         }
 
         public init() {
@@ -62,39 +74,13 @@ namespace Breakout {
 // -------------------------------------------------------------------------
         public update() {
 
-            let self = this;
-
             this.physics.arcade.collide( this.paddle, this.balls, this.paddleBallCollision, null, this );
             this.physics.arcade.collide( this.walls, this.balls );
             this.physics.arcade.collide( this.bars, this.balls, this.coll_removeBar);
             this.physics.arcade.collide( this.paddle, this.walls );
 
-            this.balls.forEach( function( ball: Phaser.Sprite ) {
-
-                if ( Play.isBallOutOfBounds( ball ) ) {
-
-                    self.handleBallOutOfBounds( ball );
-                }
-            });
-
-            if ( this.input.keyboard.isDown( Phaser.Keyboard.A ) ) {
-
-                  this.paddle.x -= this.paddleSpeed;
-
-                  if ( this.paddle.x - ( this.paddle.width / 2 ) <= this.leftBoundary ) {
-
-                        this.paddle.x = this.leftBoundary + ( this.paddle.width / 2 );
-                  }
-
-            } else if ( this.input.keyboard.isDown( Phaser.Keyboard.D ) ) {
-
-                this.paddle.x += this.paddleSpeed;
-
-                if ( this.paddle.x + ( this.paddle.width / 2 ) >= this.rightBoundary ) {
-
-                    this.paddle.x = this.rightBoundary - ( this.paddle.width / 2 ) + 1;
-                }
-            }
+            this.manageOutOfBoundsBalls();
+            this.handlePaddleInput();
         }
 
         /**
@@ -103,8 +89,8 @@ namespace Breakout {
         public setupBars() {
 
             // Define offsets
-            let xOffset = 200;
-            let yOffset = 60;
+            let xOffset = this.leftBoundary + this.insidePadding;
+            let yOffset = this.topBoundary + this.insidePadding;
 
             // Loop through and create each bar in the grid
             for ( let row = 0 ; row < 4 ; row++ ) {
@@ -125,9 +111,12 @@ namespace Breakout {
          */
         public setupBoundary() {
 
-            this.walls.add( this.createBlock( 730, 8, 170, 30 ) );
-            this.walls.add( this.createBlock( 8, 730, 170, 30 ) );
-            this.walls.add( this.createBlock( 8, 730, 900, 30 ) );
+            this.walls.add( this.createBlock( this.rightBoundary - this.leftBoundary, 8,
+                this.leftBoundary, this.topBoundary ) );
+            this.walls.add( this.createBlock( 8, this.bottomBoundary - this.topBoundary,
+                this.leftBoundary, this.topBoundary ) );
+            this.walls.add( this.createBlock( 8, this.bottomBoundary - this.topBoundary
+                , this.rightBoundary, this.topBoundary ) );
         }
 
         /**
@@ -154,14 +143,27 @@ namespace Breakout {
         }
 
         /**
+         * Create a new ball in the appropriate zone
+         */
+        public createBall() {
+
+            let newBallPoint = new Point();
+
+            this.newBallZone.random( newBallPoint );
+
+            this.createBallAt( newBallPoint.x, newBallPoint.y );
+        }
+
+        /**
          * Create a new ball instance at the given coordinates
          * @param x
          * @param y
          */
-        public createBall( x, y ) {
+        public createBallAt( x, y ) {
 
             let diameter = 25;
 
+            // Make a circle out of thin air - this is our ball
             let bmd = Global.game.add.bitmapData( diameter, diameter );
             bmd.ctx.beginPath();
             bmd.ctx.arc( diameter/2, diameter/2, diameter / 2, 0, 2 * Math.PI, false );
@@ -173,8 +175,12 @@ namespace Breakout {
             this.physics.arcade.enable( sprite );
             sprite.physicsEnabled = true;
 
-            sprite.body.velocity.x = this.ballSpeed;
-            sprite.body.velocity.y = this.ballSpeed;
+            // Pick an angle facing downward on the 2nd and 3rd quadrants
+            let rnd = new Phaser.RandomDataGenerator( [ Date.now() ] );
+            let launchAngle = rnd.between( 135 , 225 );
+
+            sprite.body.velocity.x = -1 * Math.sin( ( launchAngle * Math.PI ) / 180 ) * this.ballSpeed;
+            sprite.body.velocity.y = -1 * Math.cos( ( launchAngle * Math.PI ) / 180 ) * this.ballSpeed;
 
             sprite.body.collideWorldBounds = false;
             sprite.body.bounce.setTo( 1, 1 );
@@ -188,10 +194,11 @@ namespace Breakout {
             // Dictate angular velocity based on that angle
             let xDelta = Math.cos( hitAngle );
 
+            let newXVelocity = ball.body.velocity.x - ball.body.speed * xDelta * this.speedFactor;
 
-            ball.body.velocity.x -=
+            ball.body.velocity.x =
                 Phaser.Math.clamp(
-                    ball.body.speed * xDelta * this.speedFactor,
+                    newXVelocity,
                     -1 * this.maxSpeed,
                     this.maxSpeed
                 );
@@ -210,10 +217,18 @@ namespace Breakout {
             return true;
         }
 
-        private handleBallOutOfBounds( ball ) {
+        private manageOutOfBoundsBalls() {
 
-            ball.destroy();
-            this.createBall( 500, 400 );
+            let self = this;
+
+            this.balls.forEach( function( ball: Phaser.Sprite ) {
+
+                if ( Play.isBallOutOfBounds( ball ) ) {
+
+                    ball.destroy();
+                    self.createBall();
+                }
+            });
         }
 
         /**
@@ -234,6 +249,31 @@ namespace Breakout {
         private static isBallOutOfBounds( ball: Phaser.Sprite ) {
 
             return ( ball.y > Global.GAME_HEIGHT );
+        }
+
+        /**
+         * Translate user inputs into movements of the paddle
+         */
+        private handlePaddleInput() {
+
+            if ( this.input.keyboard.isDown( Phaser.Keyboard.A ) ) {
+
+                this.paddle.x -= this.paddleSpeed;
+
+                if ( this.paddle.x - ( this.paddle.width / 2 ) <= this.leftBoundary ) {
+
+                    this.paddle.x = this.leftBoundary + ( this.paddle.width / 2 );
+                }
+
+            } else if ( this.input.keyboard.isDown( Phaser.Keyboard.D ) ) {
+
+                this.paddle.x += this.paddleSpeed;
+
+                if ( this.paddle.x + ( this.paddle.width / 2 ) >= this.rightBoundary ) {
+
+                    this.paddle.x = this.rightBoundary - ( this.paddle.width / 2 ) + 1;
+                }
+            }
         }
     }
 }

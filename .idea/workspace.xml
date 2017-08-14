@@ -68,8 +68,8 @@
       <file leaf-file-name="Play.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Play.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="180">
+              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -79,50 +79,21 @@
         <entry file="file://$PROJECT_DIR$/js/phasergame.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+              <caret line="289" column="28" lean-forward="false" selection-start-line="289" selection-start-column="28" selection-end-line="289" selection-end-column="28" />
               <folding>
-                <marker date="1502606821000" expanded="true" signature="1810:9043" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="1846:8999" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="1905:2184" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="2498:2509" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="2555:3314" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="3358:3548" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="3679:4865" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4077:4216" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4129:4202" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4282:4531" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4417:4517" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4600:4855" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4736:4841" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="4875:4975" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
-                <marker date="1502606821000" expanded="true" signature="5023:5480" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="5222:5470" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="5275:5456" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="5490:5551" ph="/** Setup the boundaries for the game. ...*/" />
-                <marker date="1502606821000" expanded="true" signature="5603:5803" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="5813:6143" ph="/** Create a new block from which balls will bounce from ...*/" />
-                <marker date="1502606821000" expanded="true" signature="6212:6658" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="6668:6786" ph="/** Create a new ball instance at the given coordinates ...*/" />
-                <marker date="1502606821000" expanded="true" signature="6839:7552" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="7623:8338" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="7637:7842" ph="//..." />
-                <marker date="1502606821000" expanded="true" signature="8403:8481" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="8491:8631" ph="/** Collision handler between ball and bar.  Bar gets removed from play. ...*/" />
-                <marker date="1502606821000" expanded="true" signature="8693:8735" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="8745:8851" ph="/** Is the ball out of bounds? ...*/" />
-                <marker date="1502606821000" expanded="true" signature="8901:8971" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="9075:9119" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
-                <marker date="1502606821000" expanded="true" signature="9155:10346" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="9194:10296" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="9259:9457" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="9591:9808" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="9942:9953" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="10087:10265" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="10157:10255" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="10413:10638" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="10445:10602" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="10473:10484" ph="{...}" />
-                <marker date="1502606821000" expanded="true" signature="10775:10826" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="1810:10703" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="10735:10779" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
+                <marker date="1502649754000" expanded="true" signature="10815:12006" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="10854:11956" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="10919:11117" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="11251:11468" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="11602:11613" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="11747:11925" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="11817:11915" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="12073:12298" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="12105:12262" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="12133:12144" ph="{...}" />
+                <marker date="1502649754000" expanded="true" signature="12435:12486" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -190,11 +161,12 @@
       <find>Physics</find>
       <find>immovable</find>
       <find>isBallOutOfBounds</find>
-      <find>createBall</find>
       <find>his</find>
       <find>bounceBallFromPaddle</find>
       <find>speedFactor</find>
       <find>self</find>
+      <find>createBall</find>
+      <find>seek</find>
     </findStrings>
     <replaceStrings>
       <replace>function cbw_optimize_</replace>
@@ -439,12 +411,12 @@
       <option name="presentableId" value="Default" />
       <updated>1498633747973</updated>
       <workItem from="1498633749286" duration="3030000" />
-      <workItem from="1502564002403" duration="15466000" />
+      <workItem from="1502564002403" duration="19008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18496000" />
+    <option name="totallyTimeSpent" value="22038000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="131" y="51" width="1414" height="1033" extended-state="0" />
@@ -789,56 +761,29 @@
     <entry file="file://$PROJECT_DIR$/js/phasergame.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="264" column="28" lean-forward="false" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
+          <caret line="289" column="28" lean-forward="false" selection-start-line="289" selection-start-column="28" selection-end-line="289" selection-end-column="28" />
           <folding>
-            <marker date="1502606821000" expanded="true" signature="1810:9043" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="1846:8999" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="1905:2184" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="2498:2509" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="2555:3314" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="3358:3548" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="3679:4865" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4077:4216" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4129:4202" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4282:4531" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4417:4517" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4600:4855" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4736:4841" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="4875:4975" ph="/** Create the bars which need to be eliminated in order to complete the game ...*/" />
-            <marker date="1502606821000" expanded="true" signature="5023:5480" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="5222:5470" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="5275:5456" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="5490:5551" ph="/** Setup the boundaries for the game. ...*/" />
-            <marker date="1502606821000" expanded="true" signature="5603:5803" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="5813:6143" ph="/** Create a new block from which balls will bounce from ...*/" />
-            <marker date="1502606821000" expanded="true" signature="6212:6658" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="6668:6786" ph="/** Create a new ball instance at the given coordinates ...*/" />
-            <marker date="1502606821000" expanded="true" signature="6839:7552" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="8403:8481" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="8491:8631" ph="/** Collision handler between ball and bar.  Bar gets removed from play. ...*/" />
-            <marker date="1502606821000" expanded="true" signature="8693:8735" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="8745:8851" ph="/** Is the ball out of bounds? ...*/" />
-            <marker date="1502606821000" expanded="true" signature="8901:8971" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="9075:9119" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
-            <marker date="1502606821000" expanded="true" signature="9155:10346" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="9194:10296" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="9259:9457" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="9591:9808" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="9942:9953" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="10087:10265" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="10157:10255" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="10413:10638" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="10445:10602" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="10473:10484" ph="{...}" />
-            <marker date="1502606821000" expanded="true" signature="10775:10826" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="1810:10703" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="10735:10779" ph="/** Created by tdavis6782 on 6/28/17. ...*/" />
+            <marker date="1502649754000" expanded="true" signature="10815:12006" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="10854:11956" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="10919:11117" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="11251:11468" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="11602:11613" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="11747:11925" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="11817:11915" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="12073:12298" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="12105:12262" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="12133:12144" ph="{...}" />
+            <marker date="1502649754000" expanded="true" signature="12435:12486" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Play.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="180">
+          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding />
         </state>
       </provider>

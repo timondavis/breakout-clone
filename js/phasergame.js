@@ -51,15 +51,20 @@ var Breakout;
 })(Breakout || (Breakout = {}));
 var Breakout;
 (function (Breakout) {
+    var Rectangle = Phaser.Rectangle;
+    var Point = Phaser.Point;
     var Play = (function (_super) {
         __extends(Play, _super);
         function Play() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
             _this.paddleSpeed = 20;
             _this.ballSpeed = 300;
-            _this.maxSpeed = 1000;
-            _this.leftBoundary = 170;
-            _this.rightBoundary = 900;
+            _this.maxSpeed = 750;
+            _this.leftBoundary = 130;
+            _this.rightBoundary = Breakout.Global.GAME_WIDTH - 130;
+            _this.topBoundary = 100;
+            _this.bottomBoundary = Breakout.Global.GAME_HEIGHT - 50;
+            _this.insidePadding = 50;
             _this.speedFactor = 1;
             _this.speedFactorIncrement = 0.01;
             _this.speedFactorMax = 1.3;
@@ -68,6 +73,7 @@ var Breakout;
         }
         // -------------------------------------------------------------------------
         Play.prototype.preload = function () {
+            this.newBallZone = new Rectangle(this.leftBoundary + this.insidePadding, (this.bottomBoundary - this.topBoundary) / 2, (this.rightBoundary - this.insidePadding) - (this.leftBoundary + this.insidePadding), (this.bottomBoundary - this.topBoundary) / 3);
         };
         Play.prototype.create = function () {
             this.add.image(0, 0, 'background', 0);
@@ -84,7 +90,7 @@ var Breakout;
             this.balls = this.add.physicsGroup();
             this.balls.physicsBodyType = Phaser.Physics.ARCADE;
             this.setupBoundary();
-            this.createBall(400, 600);
+            this.createBall();
         };
         Play.prototype.init = function () {
             this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -93,36 +99,20 @@ var Breakout;
         };
         // -------------------------------------------------------------------------
         Play.prototype.update = function () {
-            var self = this;
             this.physics.arcade.collide(this.paddle, this.balls, this.paddleBallCollision, null, this);
             this.physics.arcade.collide(this.walls, this.balls);
             this.physics.arcade.collide(this.bars, this.balls, this.coll_removeBar);
             this.physics.arcade.collide(this.paddle, this.walls);
-            this.balls.forEach(function (ball) {
-                if (Play.isBallOutOfBounds(ball)) {
-                    self.handleBallOutOfBounds(ball);
-                }
-            });
-            if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
-                this.paddle.x -= this.paddleSpeed;
-                if (this.paddle.x - (this.paddle.width / 2) <= this.leftBoundary) {
-                    this.paddle.x = this.leftBoundary + (this.paddle.width / 2);
-                }
-            }
-            else if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {
-                this.paddle.x += this.paddleSpeed;
-                if (this.paddle.x + (this.paddle.width / 2) >= this.rightBoundary) {
-                    this.paddle.x = this.rightBoundary - (this.paddle.width / 2) + 1;
-                }
-            }
+            this.manageOutOfBoundsBalls();
+            this.handlePaddleInput();
         };
         /**
          * Create the bars which need to be eliminated in order to complete the game
          */
         Play.prototype.setupBars = function () {
             // Define offsets
-            var xOffset = 200;
-            var yOffset = 60;
+            var xOffset = this.leftBoundary + this.insidePadding;
+            var yOffset = this.topBoundary + this.insidePadding;
             // Loop through and create each bar in the grid
             for (var row = 0; row < 4; row++) {
                 for (var col = 0; col < 10; col++) {
@@ -135,9 +125,9 @@ var Breakout;
          * Setup the boundaries for the game.
          */
         Play.prototype.setupBoundary = function () {
-            this.walls.add(this.createBlock(730, 8, 170, 30));
-            this.walls.add(this.createBlock(8, 730, 170, 30));
-            this.walls.add(this.createBlock(8, 730, 900, 30));
+            this.walls.add(this.createBlock(this.rightBoundary - this.leftBoundary, 8, this.leftBoundary, this.topBoundary));
+            this.walls.add(this.createBlock(8, this.bottomBoundary - this.topBoundary, this.leftBoundary, this.topBoundary));
+            this.walls.add(this.createBlock(8, this.bottomBoundary - this.topBoundary, this.rightBoundary, this.topBoundary));
         };
         /**
          * Create a new block from which balls will bounce from
@@ -159,12 +149,21 @@ var Breakout;
             return sprite;
         };
         /**
+         * Create a new ball in the appropriate zone
+         */
+        Play.prototype.createBall = function () {
+            var newBallPoint = new Point();
+            this.newBallZone.random(newBallPoint);
+            this.createBallAt(newBallPoint.x, newBallPoint.y);
+        };
+        /**
          * Create a new ball instance at the given coordinates
          * @param x
          * @param y
          */
-        Play.prototype.createBall = function (x, y) {
+        Play.prototype.createBallAt = function (x, y) {
             var diameter = 25;
+            // Make a circle out of thin air - this is our ball
             var bmd = Breakout.Global.game.add.bitmapData(diameter, diameter);
             bmd.ctx.beginPath();
             bmd.ctx.arc(diameter / 2, diameter / 2, diameter / 2, 0, 2 * Math.PI, false);
@@ -174,8 +173,11 @@ var Breakout;
             sprite.anchor.set(0.5);
             this.physics.arcade.enable(sprite);
             sprite.physicsEnabled = true;
-            sprite.body.velocity.x = this.ballSpeed;
-            sprite.body.velocity.y = this.ballSpeed;
+            // Pick an angle facing downward on the 2nd and 3rd quadrants
+            var rnd = new Phaser.RandomDataGenerator([Date.now()]);
+            var launchAngle = rnd.between(135, 225);
+            sprite.body.velocity.x = -1 * Math.sin((launchAngle * Math.PI) / 180) * this.ballSpeed;
+            sprite.body.velocity.y = -1 * Math.cos((launchAngle * Math.PI) / 180) * this.ballSpeed;
             sprite.body.collideWorldBounds = false;
             sprite.body.bounce.setTo(1, 1);
         };
@@ -184,17 +186,23 @@ var Breakout;
             var hitAngle = Breakout.Global.game.physics.arcade.angleBetween(ball, paddle);
             // Dictate angular velocity based on that angle
             var xDelta = Math.cos(hitAngle);
-            ball.body.velocity.x -=
-                Phaser.Math.clamp(ball.body.speed * xDelta * this.speedFactor, -1 * this.maxSpeed, this.maxSpeed);
+            var newXVelocity = ball.body.velocity.x - ball.body.speed * xDelta * this.speedFactor;
+            ball.body.velocity.x =
+                Phaser.Math.clamp(newXVelocity, -1 * this.maxSpeed, this.maxSpeed);
             ball.body.velocity.y = Phaser.Math.clamp(ball.body.velocity.y * this.speedFactor, -1 * this.maxSpeed, this.maxSpeed);
             if (this.speedFactor < this.speedFactorMax) {
                 this.speedFactor += this.speedFactorIncrement;
             }
             return true;
         };
-        Play.prototype.handleBallOutOfBounds = function (ball) {
-            ball.destroy();
-            this.createBall(500, 400);
+        Play.prototype.manageOutOfBoundsBalls = function () {
+            var self = this;
+            this.balls.forEach(function (ball) {
+                if (Play.isBallOutOfBounds(ball)) {
+                    ball.destroy();
+                    self.createBall();
+                }
+            });
         };
         /**
          * Collision handler between ball and bar.  Bar gets removed from play.
@@ -211,6 +219,23 @@ var Breakout;
          */
         Play.isBallOutOfBounds = function (ball) {
             return (ball.y > Breakout.Global.GAME_HEIGHT);
+        };
+        /**
+         * Translate user inputs into movements of the paddle
+         */
+        Play.prototype.handlePaddleInput = function () {
+            if (this.input.keyboard.isDown(Phaser.Keyboard.A)) {
+                this.paddle.x -= this.paddleSpeed;
+                if (this.paddle.x - (this.paddle.width / 2) <= this.leftBoundary) {
+                    this.paddle.x = this.leftBoundary + (this.paddle.width / 2);
+                }
+            }
+            else if (this.input.keyboard.isDown(Phaser.Keyboard.D)) {
+                this.paddle.x += this.paddleSpeed;
+                if (this.paddle.x + (this.paddle.width / 2) >= this.rightBoundary) {
+                    this.paddle.x = this.rightBoundary - (this.paddle.width / 2) + 1;
+                }
+            }
         };
         return Play;
     }(Phaser.State));
